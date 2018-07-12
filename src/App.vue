@@ -1,29 +1,47 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+
+  <v-app dark>
+    <v-toolbar>
+      <v-toolbar-side-icon></v-toolbar-side-icon>
+      <v-toolbar-title active-class exact to='/'>NFL Guru</v-toolbar-title>
+      <v-spacer />
+      <v-toolbar-items>
+        <v-btn active-class exact dark flat to='about'>ag-Grid</v-btn>
+        <v-btn active-class exact dark flat to='schedule'>Schedule</v-btn>
+      </v-toolbar-items>
+    </v-toolbar>
+    <div id='mdi'>
+      <router-view/>
     </div>
-    <router-view/>
-  </div>
+    <v-bottom-nav
+      :value='true'
+      absolute
+      height='40'
+      background-color='#dedede'
+    >
+      <v-footer class="pa-3">
+        <v-spacer></v-spacer>
+        <div>&copy; {{ new Date().getFullYear() }}</div>
+      </v-footer>
+    </v-bottom-nav>
+  </v-app>
+
 </template>
 
-<style lang="scss">
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+<style lang='scss'>
+
+#mdi {
+  font-family: 'Roboto', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-#nav {
-  padding: 30px;
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
+  position:absolute;
+  top: 57px;
+  left: 0px;
+  right: 0px;
+  bottom: 48px;
+  background-image:
+    linear-gradient(
+     #ffffff, rgb(52, 96, 214), #ffffff
+    );
 }
 </style>
