@@ -69,7 +69,7 @@ export default {
       this.selection = selectedRows[0];
       var h = this.selection.hname.toUpperCase()
       var v = this.selection.vname
-      this.opponents = [h,v]
+      this.opponents = [v,h]
       this.dialog = true
     },
     onGridSizeChanged () {
@@ -117,16 +117,7 @@ export default {
         headerName: 'Favorite',
         field: 'fav',
         minWidth: 100, 
-        maxWidth: 100,
-        editable: true,
-        cellEditor: 'agSelectCellEditor',
-        cellEditorParams: function(params) {
-            var h = params.node.data.hname.toUpperCase();
-            var v = params.node.data.vname;
-            return {
-                values: [h,v]
-            };
-        }
+        maxWidth: 100
       },
       {
         headerName: 'Spread',
